@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Data</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container container-fluid">
+
+<div class="container container-fluid">
+    <h3>Student Data</h3>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+<!--        <th scope="col">Role</th>-->
+        <th scope="col">Get Marks</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="data : ${data}">
+        <td th:text="${data.studentId}">Mark</td>
+        <td th:text="${data.name}">Mark</td>
+        <td th:text="${data.email}">Mark</td>
+        <td th:text="${data.age}">Mark</td>
+<!--        <td th:text="${data.role}">Mark</td>-->
+
+        <td>
+
+            <div class="container contaner-fluid ">
+                <a th:href="'/get-marks/' + ${data.studentId}" >Get Marks</a>
+
+            </div>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+    <div class="container contaner-fluid ">
+    <form  th:action="@{/logout}" method="post">
+        <button class="btn btn-success-outline">Logout</button>
+    </form>
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>
